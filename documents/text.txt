@@ -1,0 +1,15 @@
+
+// simple hill climbing sẽ chọn từng cái neighbor của cái current để mà tính toán coi nó có tốt nhất không, nếu như là tốt thì chọn
+// làm cái current state
+// steepest accent hill climbing thì nó load hết tất cả neighbor và sau đó chọn cái tốt nhất
+// stochastic hill climbing sẽ chọn ngẫu nhiên để đi tiếp
+
+// đối với bài toán TSP thì mình dùng chiến thuật bất kì thì sẽ ra được neighbor
+// steepest chạy sẽ ra 1 tập các neighbor
+// simple ?? các neighbor phải theo một thứ tự thì lúc mình lấy ra sẽ lấy theo 1 thứ tự để tính toán từng cái một
+// stochastic thì sẽ lấy ngẫu nhiên trong neighbor. vậy nếu lúc đầu mình tạo bằng cách đảo ngẫu nhiên phần tử là đã đúng ý của nó chưa
+
+// Simple Hill climbing : It examines the neighboring nodes one by one and selects the first neighboring node which optimizes the current cost as next node. 
+// Steepest-Ascent Hill climbing : It first examines all the neighboring nodes and then selects the node closest to the solution state as of next node.   
+// Stochastic hill climbing : It does not examine all the neighboring nodes before deciding which node to select .It just selects a neighboring node at random and decides 
+// (based on the amount of improvement in that neighbor) whether to move to that neighbor or to examine another. 
