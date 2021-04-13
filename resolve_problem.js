@@ -1,11 +1,17 @@
 const fs = require('fs')
 const { shotgunHillClimbing, createPath, createTSPMap, findMinItemsInArray } = require('./index')
 const _ = require('lodash')
-const problems = require('./data/problems.json')
 const resultPath = './result'
 const amountOfRandom = 2000
 
 async function main() {
+    let problems
+    if(fs.existsSync('./data/problems.json')) {
+        problems = require('./data/problems.json')
+    }
+
+    if(!problems) throw new Error("missing file problems.json")
+
     // tính theo ngày hiện tại
     let time = new Date().toDateString()
     for(let i = 0 ; i < problems.length; i++) {
@@ -16,6 +22,10 @@ async function main() {
             } 
 
             const tsp = await createTSPMap('./data/dist/' + problems[i].name + '.d.txt')
+            if(tsp.length > 50) {
+                console.log('=======> Skip file ' + tsp.length)
+                continue
+            }
             const pathLength = tsp.length
             const exceedTime = problems[i].exceedTime
 

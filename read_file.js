@@ -147,6 +147,7 @@ async function handleFolderDistanceDownload() {
             resolve(filenames)
         })
     })
+
     arrayFiles.forEach((fileName) => {
         let split = fileName.split('.')
         let name = split[0]
@@ -160,7 +161,7 @@ async function handleFolderDistanceDownload() {
         
         let index = problems.filter(item => item.name === name)
         if(index) {
-            fs.copyFileSync(pathData + '/' + 'dist_download/' + fileName, pathData + '/' + 'dist/' + fileName)
+            fs.copyFileSync(pathData + '/' + 'dist_download/' + fileName, pathData + '/' + 'dist/' + name + '.d.txt')
             problems.push({
                 exceedTime: 1000,
                 name: name
@@ -172,6 +173,7 @@ async function handleFolderDistanceDownload() {
 }
 
 async function main({ type }) {
+    console.log(type)
     switch(type) {
         case 'tsp_root':
             // đọc file từ folder tsp và lấy dữ liệu x,y sang folder coordinate
@@ -190,8 +192,27 @@ async function main({ type }) {
     }
 }
 
+async function remove_file_in_folder(folderName) {
+    let arrayFiles = []
+    arrayFiles = await new Promise((resolve, reject) => {
+        fs.readdir('./data/' + folderName, function(err, filenames) {
+            if (err) {
+                reject(err)
+                return;
+            }
+            resolve(filenames)
+        })
+    })
+
+    arrayFiles.forEach(fileName => {
+        fs.unlinkSync('./data/' + folderName + "/" + fileName)
+        console.log('=======> Removed file ', fileName)
+    })
+}
+
 // main()
 
 module.exports = {
-    read_file: main
+    read_file: main,
+    remove_file_in_folder
 }
