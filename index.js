@@ -2,17 +2,6 @@ const { performance } = require('perf_hooks');
 const fs = require('fs')
 const LineByLineReader = require('line-by-line')
 
-// const tsp = [
-//     [Infinity, 20, 42, 31, 6, 24],
-//     [10, Infinity, 17, 6, 35, 18],
-//     [25, 5, Infinity, 27, 14, 9],
-//     [12, 9, 24, Infinity, 30, 12],
-//     [14, 7, 21, 15, Infinity, 38],
-//     [40, 15, 16, 5, 20, Infinity],
-// ];
-// const pathLength = 6
-// const exceedTime = 100
-
 function randomPath(pathLength) {
 	let array = Array.from({length: pathLength}).map((i, index) =>  index)
 	let result = []
@@ -304,7 +293,7 @@ function convertStringToArray(arrayString) {
 			temp = temp.split(";;").join(";")
 		}
 		temp = temp.split(";").filter(item => item !== "")
-		array.push(temp.map(i => i == "0" ? Infinity : parseInt(i)))
+		array.push(temp.map((i, index) => i === index ? Infinity : parseInt(i)))
 	}
 	return array
 }
@@ -404,5 +393,7 @@ module.exports = {
 	convertStringToArray,
 	createTSPMap,
 	findMinItemsInArray,
-	findMinValueInArray
+	findMinValueInArray,
+	getDistanceFromSolution,
+	hillClimbing
 }

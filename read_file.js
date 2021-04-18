@@ -1,6 +1,7 @@
 const LineByLine = require('line-by-line')
 const fs = require('fs')
 const pathData = './data'
+const exceedTime = 5000
 
 async function readFileInFolderAsync() {
     try {
@@ -106,7 +107,7 @@ function calculateSingleFileAsync(fileName) {
             let index = problems.filter(item => item.name === name)
             if(index) {
                 problems.push({
-                    exceedTime: 1000,
+                    exceedTime: exceedTime,
                     name: name
                 })
             }
@@ -133,7 +134,7 @@ function calculateSingleFileAsync(fileName) {
 }
 
 function eclideanDistace(x1, y1, x2, y2) {
-    return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2 , 2))
+    return Math.round(Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2 , 2)))
 }
 
 async function handleFolderDistanceDownload() {
@@ -163,7 +164,7 @@ async function handleFolderDistanceDownload() {
         if(index) {
             fs.copyFileSync(pathData + '/' + 'dist_download/' + fileName, pathData + '/' + 'dist/' + name + '.d.txt')
             problems.push({
-                exceedTime: 1000,
+                exceedTime: exceedTime,
                 name: name
             })
         }

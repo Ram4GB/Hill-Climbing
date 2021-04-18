@@ -1,5 +1,5 @@
 const { read_file, remove_file_in_folder } = require('./read_file')
-const { resolve_problem } = require('./resolve_problem')
+const { resolve_problem_shotgun_hill_climbing } = require('./resolve_problem_shotgun_hill_climbing')
 const fs = require('fs')
 
 const main = async () => {
@@ -8,7 +8,7 @@ const main = async () => {
         await read_file({ type: 'tsp_root' })
         await read_file({ type: 'dist_root' })
         console.log('Resolve start...')
-        await resolve_problem()
+        await resolve_problem_shotgun_hill_climbing()
     } catch (error) {
         console.log(error)
     }
