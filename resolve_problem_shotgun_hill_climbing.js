@@ -16,10 +16,10 @@ async function main() {
 
     // tính theo ngày hiện tại
     // mỗi lần chạy sẽ tạo ra 1 folder
-    // let time = new Date().toDateString()
-
+    
     // chỉ lấy kết quả của ngày hiện tại mà thôi
-    let time = "TODAY"
+    // let time = "TODAY"
+    let time = new Date().toDateString()
     for(let i = 0 ; i < problems.length; i++) {
         try {
             // tạo folder cho từng problem
