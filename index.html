@@ -33,15 +33,15 @@
                 let data    = null
 
                 result1 = await $.ajax({
-                    url: "http://127.0.0.1:5501/result/pbk411/Mon Apr 19 2021/hillclimbing_411_1_.json",
+                    url: "http://127.0.0.1:5501/result/gr17_d/TODAY/hillclimbing_17_1_.json",
                     method: "GET"
                 })
                 result2 = await $.ajax({
-                    url: "http://127.0.0.1:5501/result/pbk411/Mon Apr 19 2021/hillclimbing_411_2_.json",
+                    url: "http://127.0.0.1:5501/result/gr17_d/TODAY/hillclimbing_17_2_.json",
                     method: "GET"
                 })
                 result3 = await $.ajax({
-                    url: "http://127.0.0.1:5501/result/pbk411/Mon Apr 19 2021/hillclimbing_411_3_.json",
+                    url: "http://127.0.0.1:5501/result/gr17_d/TODAY/hillclimbing_17_3_.json",
                     method: "GET"
                 })
                 data = [...result1.history,...result2.history,...result3.history].map(item => item.resultPathLength)
@@ -61,7 +61,7 @@
                             },
                             {
                                 type: 'line',
-                                data: [{x: 0, y: 1343}, {x: data.length - 1, y: 1343}],
+                                data: [{x: 0, y: 2085}, {x: data.length - 1, y: 2085}],
                                 order: 1,
                                 label: "Giá trị tối ưu",
                                 borderColor: "red"
