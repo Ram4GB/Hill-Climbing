@@ -1,20 +1,4 @@
-Nếu như chỉ chạy hillclimbing không thì chỉ tìm được những hàng xóm gần kề quá phụ thuộc vào initial value
-
-=> Chạy lại nhiều lần random initial sẽ cải thiện được điểm rơi lúc mà người đó leo núi
-=> Nó gọi là Shotgun hill climbing
-
-=======================================================================================================
-
-Show kết quả của hill climbing chỉ chạy 1 lần ??
-Show kết quả của shotgun hill climbing ??
-Show cả 2 ??
-
-Có cần show thời gian chạy và thời gian kết thúc hay không?
-Show những gì?
-
-Tùy bài toán mà exceedTime(tức tại 1 lời giải thì sẽ phải tìm bao nhiêu kết quả lân cận) sẽ khác nhau v thì có cần cấu trúc chung hay là chỉ cần sử dụng mặc định
-
-amountOfRandom(tức là số lần tạo initial solution x rồi chạy hill_climbing) cái này được built trên đầu thuật toán hill thì mình định nghĩa bao nhiêu lần chạy 
+# Hill Climbing
 
 =======================================================================================================
 
